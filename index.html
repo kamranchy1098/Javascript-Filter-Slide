@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio Gallery with Filtering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+<section class="portfolio">
+   <div class="container">
+   	  <div class="heading">
+   	  	  <h1>My Portfolio</h1>
+   	  </div>
+   	  <div class="filter-btn">
+   	  	 <ul id="buttons">
+   	  	 	<li class="active" data-target="all">All</li>
+   	  	 	<li data-target="bag">Bags</li>
+   	  	 	<li data-target="watch">Watches</li>
+   	  	 	<li data-target="shoe">Shoes</li>
+   	  	 </ul>
+   	  </div>
+   	  <div class="items">
+   	  	 <div class="box" data-id="bag">
+   	  	 	 <div class="inner">
+   	  	 	 	 <img src="images/bag1.jpg" alt="portfolio" />
+   	  	 	 </div>
+   	  	 </div>
+   	  	 <div class="box" data-id="watch">
+   	  	 	 <div class="inner">
+   	  	 	 	 <img src="images/watch1.jpg" alt="portfolio" />
+   	  	 	 </div>
+   	  	 </div>
+   	  	 <div class="box" data-id="bag">
+   	  	 	 <div class="inner">
+   	  	 	 	 <img src="images/bag2.jpg" alt="portfolio" />
+   	  	 	 </div>
+   	  	 </div>
+   	  	 <div class="box" data-id="shoe">
+   	  	 	 <div class="inner">
+   	  	 	 	 <img src="images/shoe1.jpg" alt="portfolio" />
+   	  	 	 </div>
+   	  	 </div>
+   	  	 <div class="box" data-id="watch">
+   	  	 	 <div class="inner">
+   	  	 	 	 <img src="images/watch2.jpg" alt="portfolio" />
+   	  	 	 </div>
+   	  	 </div>
+   	  	 <div class="box" data-id="shoe">
+   	  	 	 <div class="inner">
+   	  	 	 	 <img src="images/shoe2.jpg" alt="portfolio" />
+   	  	 	 </div>
+   	  	 </div>
+   	  </div>
+   </div>
+</section>
+ 
+ 
+ <script>
+  const buttons = document.querySelector("#buttons").children;
+  const items = document.querySelector(".items").children;
+  
+  
+     for(let i=0; i<buttons.length; i++){
+	    buttons[i].addEventListener("click",function(){
+		
+		    for(let j=0; j<buttons.length; j++){
+			   buttons[j].classList.remove("active")
+			}
+		    this.classList.add("active")
+	        const target=this.getAttribute("data-target");
+			
+			for(let k=0; k<items.length; k++){
+			     items[k].style.opacity="0.5";
+                 items[k].style.transform="scale(0.8)";
+				 
+				 
+				 if(items[k].getAttribute("data-id")==target){
+                   	items[k].style.opacity="1";
+                    items[k].style.transform="scale(1)";
+			     }
+				 
+				if(target=="all"){
+                   	items[k].style.opacity="1";
+                   items[k].style.transform="scale(1)";
+                   }
+            }				   
+		})
+	 
+	 }
+</script>
+	  
+	   
+
+</body>
+</html>
+
+
+
+
+
+
